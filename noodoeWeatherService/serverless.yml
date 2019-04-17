@@ -1,0 +1,17 @@
+service: cwbWeather # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: cwbWeather
+  region: ${opt:region, 'ap-southeast-1'} # Overwrite the default region used. Default is us-east-1
+  #role: arn:aws:iam::660960443661:role/lambda_noodoeWeather # Overwrite the default IAM role which is used for all functions
+
+functions:
+  openData:
+    handler: handler.service
+    vpc:
+      securityGroupIds:
+        - sg-05e9f8445a8605722
+      subnetIds:
+        - subnet-87ac7cde

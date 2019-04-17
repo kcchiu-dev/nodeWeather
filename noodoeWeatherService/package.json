@@ -1,0 +1,19 @@
+{
+  "name": "noodoeweatherservice",
+  "version": "1.0.0",
+  "description": "call cwb service",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cwb"
+  ],
+  "author": "Eddie.Chiu",
+  "license": "ISC",
+  "dependencies": {
+    "jsonpath": "^1.0.1",
+    "pg": "^7.10.0",
+    "request": "^2.88.0"
+  }
+}
