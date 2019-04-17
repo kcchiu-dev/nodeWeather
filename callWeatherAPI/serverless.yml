@@ -1,0 +1,34 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: callWeatherAPI # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: cwbWeather
+  region: ${opt:region, 'ap-southeast-1'} # Overwrite the default region used. Default is us-east-1
+
+functions:
+  weatherAPI:
+    handler: handler.service
+    vpc:
+      securityGroupIds:
+        - sg-05e9f8445a8605722
+      subnetIds:
+        - subnet-87ac7cde
+    events:
+      - http:
+          path: weatherNow
+          method: get
+          cors: true
